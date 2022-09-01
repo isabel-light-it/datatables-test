@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+//tables
+import AGGrid from "./Datatables/AG-Grid";
+import KATable from "./Datatables/KA-Table";
+import MUIGrid from "./Datatables/MUI-Grid";
+import TanStack from "./Datatables/TanStack/TanStack";
+import ReactDOM from "react-dom";
+import PivotTableUI from "react-pivottable/PivotTableUI";
+import "react-pivottable/pivottable.css";
+
+import { makeData } from "./utilities/makeData";
+import PivotTable from "./Datatables/PivotTable";
+import ReactPivotContainer from "./Datatables/ReactPivotContainer";
+import ReactDataGridContainer from "./Datatables/ReactDataGrid/ReactDataGridContainer";
 
 function App() {
+  const [data, setData] = useState(() => makeData(100000));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <MUIGrid data={data}/> */}
+      {/*  <AGGrid data={data}/> */}
+      {/*  <KATable data={data}/> */}
+      {/*  <PivotTable/> */}
+      {/* <ReactPivotContainer/> */}
+      <ReactDataGridContainer data={data}/>
     </div>
   );
 }
